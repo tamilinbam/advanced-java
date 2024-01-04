@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean class="com.learn.hibrnate.spring.student" id="st">
+	<property name="rollno" value="13"></property>
+	<property name="name" value="tamil"></property>
+	<property name="age" value="33"></property>
+</bean>
+
+<bean class="com.learn.hibrnate.spring.java" id="jt">
+	<property name="id" value="13"></property>
+	<property name="name" value="tamil"></property>
+</bean>
+
+
+<bean class="com.learn.hibrnate.spring.sql" id="sqt">
+	<property name="id" value="14"></property>
+	<property name="name" value="sam"></property>
+</bean>
+
+<bean class="com.learn.hibrnate.spring.python" id="pt">
+	<property name="id" value="15"></property>
+	<property name="name" value="dinesh"></property>
+</bean>
+
+
+
+</beans>
