@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+     
+     
+    <bean class="com.learn.hibrnate.spring4.employee" id="emp">
+    <property name="technolgy">
+        <list>
+            <value>java</value>
+            <value>sql</value>
+            <value>css</value>
+        </list>
+    </property>
+    <property name="project">
+        <set>
+            <value>project1</value>
+            <value>project2</value>
+            <value>project3</value>
+        </set>
+    </property>
+    <property name="companies">
+        <map>
+            <entry key="123" value="xyz"></entry>
+            <entry key="456" value="abc"></entry>
+            <entry key="098" value="efg"></entry>
+        </map>
+    </property>
+</bean>
+        
+        
+        
+        
+        
+           
+</beans>

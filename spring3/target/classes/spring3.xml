@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+<!-- setter injection -->
+     <bean class="com.learn.hibrnate.spring3.laptop" id="lap">
+     <property name="srno" value="1234"></property>
+     <property name="brand" value="ASUS ROG"></property>
+     <property name="cost" value="3000000"></property>
+     
+     </bean>
+<!-- constructor injection -->
+     <bean class="com.learn.hibrnate.spring3.laptop" id="lap2">
+     <constructor-arg value="12345"></constructor-arg>
+     <constructor-arg value="ASUS TUF"></constructor-arg>
+     <constructor-arg value="300000"></constructor-arg>
+     
+     </bean>
+        
+           
+           
+</beans>
