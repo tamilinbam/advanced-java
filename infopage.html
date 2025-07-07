@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='infopage.css') }}">
+    <link rel="icon" type="image/png" href="form.png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main_box">
+
+        <div class="header" id="head">
+            <h2>Personal Information Form</h2><hr>
+        </div>
+
+        {% if error %}
+            <div class="error-box">{{ error }}</div>
+        {% endif %}
+
+        <form id="information_form" action="/submit" method="POST">
+            <div class="row">
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="{{ prefill.name if prefill else '' }}" required>
+            </div><br>
+
+            <div class="row">
+                <label for="phone" id="phone">Phone No.:</label>
+                <input type="tel" name="phone" pattern="[0-9]{10}" value="{{ prefill.phone if prefill else '' }}" required>
+            </div><br>
+
+            <div class="row">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="info_form@gmail.com" value="{{ prefill.email if prefill else '' }}" required>
+            </div><br>
+
+            <div class="row">
+                <label for="unqid">Unique ID:</label>
+                <input type="tel" name="unqid" placeholder="*****" pattern="[0-9]{5}" value="{{ prefill.unqid if prefill else '' }}" required>
+            </div><br>
+
+            <div class="row">
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="Male" {% if prefill and prefill.gender == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if prefill and prefill.gender == 'Female' %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if prefill and prefill.gender == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            </div><br>
+
+            <div class="row">
+                <label for="date">DOB:</label>
+                <input type="date" name="date" value="{{ prefill.date if prefill else '' }}">
+            </div><br>
+
+            <div class="row">
+                <label for="nationality">Nationality:</label>
+                <input type="text" name="nationality" value="{{ prefill.nationality if prefill else '' }}">
+            </div><br>
+            <hr>
+
+            {% if request.args.get('error') %}
+                <div class="popup">
+                    <div class="popup-box">
+                        <p>{{ request.args.get('error') }}</p>
+                        <a href="/" class="popup-button">OK</a>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="button-group">
+                <input class="button" type="submit" value="Submit">
+            </div>
+        </form>
+
+        <form action="/submit" method="POST">
+            <input type="hidden" name="action" value="fetch" />
+            <div class="row2">
+                <label for="fetch_unqid">Fetch by Unique ID:</label>
+                <input type="tel" name="fetch_unqid" placeholder="*****" pattern="[0-9]{5}" />
+                <input class="button" type="submit" value="Fetch" />
+            </div>
+        </form>
+
+        <form action="/" method="GET" style="display: inline;">
+            <button class="buttonR" type="submit">Reset</button>
+        </form>
+
+        <!-- ✅ Updated Import Form -->
+        <form action="/import" method="post" enctype="multipart/form-data" class="form-inline">
+            <input type="file" name="import_file" class="inp" accept=".csv">
+            <button class="but2" type="submit">Import From File</button>
+        </form>
+
+    </div>
+</body>
+</html>
